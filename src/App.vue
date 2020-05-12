@@ -7,7 +7,6 @@
     <router-view/>
   </div>
 </template>
-
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&family=Zilla+Slab:ital,wght@0,300;1,300&display=swap');
 #app {
@@ -18,7 +17,6 @@
   text-align: center;
   color: #2c3e50;
 }
-
 #nav {
   padding: 30px;
   a {

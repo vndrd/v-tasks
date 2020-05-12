@@ -1,8 +1,13 @@
 <template>
   <div class="grid-container">
-    <h1>Tareas</h1>
-    <Lista :datos="dt"/>
-    <Nuevo @agregar="agregar" />    
+    
+    <div class="grid-item-1">
+      <h1>Tareas</h1>
+      <Lista :datos="dt"/>
+    </div>
+    <div class="grid-item-2">
+      <Nuevo @agregar="agregar" />
+    </div>
   </div>
 </template>
 
@@ -43,5 +48,14 @@ export default {
 <style lang="scss">
 .grid-container{
   display:grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+}
+.grid-item-1{
+  grid-column: 1/-1;
+}
+.grid-item-2{
+  grid-column: 1/-1;
+  grid-row: third-line / 4;
 }
 </style>

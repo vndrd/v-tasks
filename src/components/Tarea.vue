@@ -63,7 +63,6 @@ content: "";
     opacity: 0;
     transition: all 2s ease;
 }
-
 /* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
     display: block;
