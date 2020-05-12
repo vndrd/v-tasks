@@ -5,7 +5,7 @@
             <input type="text" 
                     v-model="mensaje.text"
                     ref="input">         
-            <button @click="agregar">anotar!</button>
+            <a @click="agregar" href="#">anotar!</a>
         </div>
     </div>
 </template>
@@ -20,7 +20,8 @@ export default {
         }
     },
     methods:{
-        agregar(){
+        agregar(e){
+            e.preventDefault()
             this.$emit('agregar',this.mensaje);
             this.mensaje.text = ''
             this.$nextTick(() => {
@@ -44,6 +45,8 @@ export default {
 .elementos {
     width: fit-content;
     margin: 0 auto;
+    font-family: 'Quicksand', sans-serif;
+    font-family: 'Zilla Slab', serif;
 }
 label {
     font-size: 1.5rem;
@@ -55,26 +58,32 @@ input {
     font-family: 'Quicksand', sans-serif;
     font-family: 'Zilla Slab', serif;
     font-size: 1.5rem;
-    float: left;
     padding: 10px;
     width: 200px;
     border: 1px solid #ddd;
     background: rgba($color: #fff, $alpha: .4);
 }
-button {
+a {
     font-family: 'Quicksand', sans-serif;
     font-family: 'Zilla Slab', serif;
-    margin-left: 5px;
-    float: left;
+    font-size: 1.5rem;
     font-weight: 900;
-    font-size: 1.4rem;
-    border: 1px solid rgba($color: #fff, $alpha: 0);
+    text-decoration: none;
+    margin-left: 5px;
     padding: 10px 30px;
-    background: #fff;    
     cursor: pointer;
+    background: #fff;    
+    color: #444;
+    border: 1px solid rgba($color: #fff, $alpha: 0);
     transition: all .2s;
 }
-button:hover {
+a:focus{
+    background: #66f;    
+    color: #fff;
+}
+
+a:hover {
+    
     background: #66f;    
     color: #fff;
 }
