@@ -4,6 +4,7 @@
             <label for=""></label>
             <input type="text" 
                     v-model="mensaje.text"
+                    v-on:keyup.enter="onEnter"
                     ref="input">         
             <a href="#" @click="agregar">anotar!</a>
         </div>
@@ -22,6 +23,15 @@ export default {
     methods:{
         agregar(e){
             e.preventDefault()
+            if( this.mensaje.text === '')
+                return false
+            this.$emit('agregar',this.mensaje);
+            this.$nextTick(() => {
+                this.$refs['input'].focus()
+            })
+            this.mensaje.text = ''
+        },
+        onEnter(){
             if( this.mensaje.text === '')
                 return false
             this.$emit('agregar',this.mensaje);
