@@ -1,8 +1,9 @@
 <template>
     <div>
-        <div class="contenedor-tareas">
+        <transition-group tag="div" class="contenedor-tareas" name="tarea">
             <Tarea v-for="tarea in datos.tareas" :key="tarea.id" :data="tarea" />
-        </div>
+        </transition-group>
+
     </div>
 </template>
 <script>
@@ -32,5 +33,14 @@ export default {
     padding: 30px ;
     overflow: hidden ;//worked for align
 }
-
+.tarea-enter-active, .tarea-enter-active {
+  transition: all .3s ease;
+  
+}
+.tarea-enter {
+    opacity: 0;
+}
+.tarea-enter-to {
+    opacity: 1;
+}
 </style>

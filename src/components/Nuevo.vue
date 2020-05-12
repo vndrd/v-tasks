@@ -5,7 +5,7 @@
             <input type="text" 
                     v-model="mensaje.text"
                     ref="input">         
-            <a @click="agregar" href="#">anotar!</a>
+            <a href="#" @click="agregar">anotar!</a>
         </div>
     </div>
 </template>
