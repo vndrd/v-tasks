@@ -25,6 +25,7 @@ export default {
             e.preventDefault()
             if( this.mensaje.text === '')
                 return false
+            this.mensaje.today = (new Date()).toString();
             this.$emit('agregar',this.mensaje);
             this.$nextTick(() => {
                 this.$refs['input'].focus()

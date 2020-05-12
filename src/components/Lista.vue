@@ -1,17 +1,17 @@
 <template>
     <div>
         <transition-group tag="div" class="contenedor-tareas" name="tarea">
-
-            <Tarea v-for="tarea in tareas" :key="tarea.id" :data="tarea" />
+            <h1 key="titulo">{{item.date}}</h1>
+            <Tarea v-for="tarea in item.tareas" :key="tarea.id" :data="tarea" />
         </transition-group>
     </div>
 </template>
 <script>
-//            <h1 key="titulo">{{tareas.date}}</h1>
+//
 import Tarea from '@/components/Tarea'
 export default {
     name:'Lista',
-    props: ['tareas'],
+    props: ['item'],
     data(){
         return {
         
@@ -31,7 +31,7 @@ export default {
     margin: 0px 100px ;
     background-color: #ddd ;
     vertical-align: middle ;
-    padding: 30px ;
+    padding: 0px 30px;
     overflow: hidden ;//worked for align
 }
 h1 {
