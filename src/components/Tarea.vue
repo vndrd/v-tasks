@@ -50,10 +50,17 @@ export default {
 .container:hover input ~ .checkmark {
     background-color: #ccc;
 }
+.container:focus-within input ~ .checkmark {
+    background-color: #ccc;
+    border: 2px solid black;
+}
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
     transition: all 2s ease;
     background-color: #2196F3;
+}
+.container input:focus ~ .container {
+    text-decoration: underline;
 }
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
@@ -82,6 +89,5 @@ content: "";
     -webkit-transform: rotate(45deg) scale(3);
     -ms-transform: rotate(45deg) scale(3);
     transform: rotate(45deg) scale(3);
-    overflow: auto;
 }
 </style>

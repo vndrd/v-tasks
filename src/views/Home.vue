@@ -1,6 +1,5 @@
 <template>
   <div class="grid-container">
-    
     <div class="grid-item-1">
       <h1>Tareas</h1>
       <Lista :datos="dt"/>
@@ -12,7 +11,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Lista from '@/components/Lista.vue'
 import Nuevo from '@/components/Nuevo.vue'
 
@@ -33,10 +31,14 @@ export default {
     }
   },  
   methods: {
-    agregar({text}) {
+    agregar({text,checked = false}) {
       this.dt.top_id++;
       this.dt.tareas.push(
-        {text, id:this.dt.top_id}
+        {
+          text, 
+          id:this.dt.top_id,
+          checked
+        }
       )
     }
   },
