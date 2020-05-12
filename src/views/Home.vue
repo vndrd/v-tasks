@@ -1,8 +1,8 @@
 <template>
   <div class="grid-container">
     <div class="grid-item-1">
-      <h1>Tareas</h1>
-      <Lista :datos="dt"/>
+      <h1>Tareas</h1> 
+      <Lista :tareas="ordenFecha"/>
     </div>
     <div class="grid-item-2">
       <Nuevo @agregar="agregar" />
@@ -20,8 +20,11 @@ export default {
     return {
       dt: {
           tareas: [
-            {id: 1, text: 'Tarea prueba',date: '2019-05-11',checked: true},
-            {id: 2, text: 'Tarea prueba2',date: '2019-05-11',checked: false},
+            
+            {id: 1, text: 'Tarea prueba',date: '12-05-2020',checked: true},
+                      {id: 2, text: 'Tarea prueba2',date: '12-05-2020',checked: false},
+                      
+            
           ],
           top_id: 2,
       },
@@ -31,19 +34,36 @@ export default {
     }
   },  
   methods: {
-    agregar({text,checked = false}) {
+    agregar({text,checked = false,today}) {
+      today = new Date(today)
+      console.log("agggggggggggggg",today)
+      let convertirString = (num) => num < 10 ? `0${num}`: num;
+      let concatenar = ({dia,mes,year}) => `${dia}-${mes}-${year}`
+      let dateobj = {
+          dia: convertirString(today.getDate()),
+          mes: convertirString(today.getMonth()+1),
+          year: today.getFullYear()
+      }
+      let date = concatenar(dateobj)
       this.dt.top_id++;
       this.dt.tareas.push(
         {
           text, 
           id:this.dt.top_id,
-          checked
+          checked,
+          date
         }
       )
     }
   },
   components: {
-    Lista, Nuevo
+    Lista, Nuevo,
+  },
+  computed: {
+    ordenFecha(){
+      
+      return this.dt.tareas
+    }
   }
 }
 </script>

@@ -52,7 +52,8 @@ export default {
 }
 .container:focus-within input ~ .checkmark {
     background-color: #ccc;
-    border: 2px solid black;
+    border: 2px solid #888;
+    border-radius: 5px;
 }
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
