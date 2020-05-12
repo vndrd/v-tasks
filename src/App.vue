@@ -9,8 +9,10 @@
 </template>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&family=Zilla+Slab:ital,wght@0,300;1,300&display=swap');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-family: 'Zilla Slab', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
