@@ -18,7 +18,7 @@ export default {
         }
     },
     created(){
-        console.log("created thinf")
+        
     },
     components: {
         Tarea

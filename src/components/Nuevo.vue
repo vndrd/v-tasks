@@ -11,37 +11,59 @@
     </div>
 </template>
 <script>
+import { mapActions,mapGetters } from 'vuex'
 export default {
     name: 'Nuevo',
     data() {
         return {
             mensaje: {
                 text: '',
+                checked: false
             },
         }
     },
     methods:{
+        ...mapActions(['newTask']),
         agregar(e){
             e.preventDefault()
             if( this.mensaje.text === '')
                 return false
-            this.mensaje.today = (new Date()).toString();
-            this.$emit('agregar',this.mensaje);
+            this.newTask({    
+                ...this.mensaje,
+                date: this.dateString(new Date()),
+                id: this.getTopId
+            })
+            this.focusInput()
+        },
+        onEnter(){
+            if( this.mensaje.text === '')
+                return false
+            this.newTask({    
+                ...this.mensaje,
+                date: this.dateString(new Date()),
+                id: this.getTopId
+            })
+            this.focusInput()
+        },
+        focusInput(){
             this.$nextTick(() => {
                 this.$refs['input'].focus()
             })
             this.mensaje.text = ''
         },
-        onEnter(){
-            if( this.mensaje.text === '')
-                return false
-            this.mensaje.today = (new Date()).toString();
-            this.$emit('agregar',this.mensaje);
-            this.$nextTick(() => {
-                this.$refs['input'].focus()
-            })
-            this.mensaje.text = ''
+        dateString(date){
+            let convertirString = (num) => num < 10 ? `0${num}`: num;
+            let concatenar = ({dia,mes,year}) => `${dia}-${mes}-${year}`
+            let dateobj = {
+                dia: convertirString(date.getDate()),
+                mes: convertirString(date.getMonth()+1),
+                year: date.getFullYear()
+            }
+            return concatenar(dateobj)
         }
+    },
+    computed: {
+        ...mapGetters(['getTopId'])
     }
 }
 </script>
