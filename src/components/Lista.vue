@@ -1,8 +1,12 @@
 <template>
     <div>
         <transition-group tag="div" class="contenedor-tareas" name="tarea">
-            <h1 key="titulo">{{item.date}}</h1>
-            <Tarea v-for="tarea in item.tareas" :key="tarea.id" :data="tarea" />
+            <h1 key="titulo">
+                {{item.date}}
+            </h1>
+            <Tarea v-for="tarea in item.tareas" 
+                    :key="tarea.id" 
+                    :data="tarea" />
         </transition-group>
     </div>
 </template>

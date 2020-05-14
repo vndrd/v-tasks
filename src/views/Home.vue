@@ -33,10 +33,10 @@ export default {
     }
   },  
   created(){
-    
+    this.callTasks();
   },
   methods: {
-    ...mapActions(['prueba']),
+    ...mapActions(['callTasks']),
   },
   components: {
     Lista, Nuevo,
